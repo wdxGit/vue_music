@@ -4,7 +4,8 @@
 import {
     RECEIVE_SONGLIST,
     RECEIVE_SEARCHLIST,
-    RECEIVE_HOTSONGLIST
+    RECEIVE_HOTSONGLIST,
+    RECEIVE_PROTOSONGLIST
 } from './mutation-types'
 
 export default {
@@ -19,7 +20,9 @@ export default {
 
     [RECEIVE_SEARCHLIST](state, { searchList }) { //搜索
         state.searchList = searchList
+    },
+
+    [RECEIVE_PROTOSONGLIST](state, { protoSongList }) { //歌曲列表 新歌 总
+        state.protoSongList = protoSongList
     }
-
-
 }

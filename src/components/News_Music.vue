@@ -2,7 +2,7 @@
   <div class="mod-albums">
     <div class="hd log url">
         <h2>新歌速递</h2>
-        <router-link tag="div" :to="{name:'/index/moreList',query:{type:'2'}}">更多</router-link>
+        <router-link tag="div" :to="{name:'/index/moreList',query:{type:'2',title:'新歌速递'}}">更多</router-link>
     </div>
 
     <div class="container">

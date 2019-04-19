@@ -2,7 +2,7 @@
 <div class="mod-albums">
   <div class="hd log ur">
     <h2>今日推荐</h2>
-    <router-link tag="div" :to="{name:'/index/moreList',query:{type:'1'}}">更多</router-link>
+    <router-link tag="div" :to="{name:'/index/moreList',query:{type:'1',title:'今日推荐'}}">更多</router-link>
   </div>
 
   <div class="container">
