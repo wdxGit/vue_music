@@ -3,7 +3,7 @@
   <div class="wrapper">
     <h3>{{this.$route.query.title}}</h3>
     <v-scroll :on-refresh="onRefresh">
-      <div class="info url log" v-for="(item, index) in songList" :key="index">
+      <div class="info url log" v-for="(item, index) in protoSongList.song_list" :key="index">
         <div class="poster">
           <img :src="item.pic_big" :alt="item.title">
         </div>
@@ -32,7 +32,7 @@ export default {
     this.getList()
   },
   computed: {
-    ...mapState(['protoSongList', 'songList'])
+    ...mapState(['protoSongList']),
   },
   methods: {
     getList() {
@@ -44,8 +44,7 @@ export default {
       })
     },
     onRefresh(done) {
-      this.getList();
-
+      this.getList()
       done() // call done
     }
   },
@@ -53,8 +52,14 @@ export default {
     songList() {
       this.$nextTick(() => {
         let songnum = this.protoSongList.billboard.billboard_songnum
+        console.log(songnum)
+
         if (this.offset + 12 <= songnum ) {
-          this.offset = this.offset + 12
+          if(this.offset + 12 == songnum){
+            this.offset = 0
+          }else{
+            this.offset = this.offset + 12
+          }
         }else if(this.offset + 12 - songnum >= 12){
           this.offset = 0
         } else {
